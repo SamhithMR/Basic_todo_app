@@ -1,24 +1,38 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Todolist  from './todolist.js';
 
 function App() {
+
+let [data, setData] = useState("")
+let [arr, setArr] = useState([])
+
+function takeInput(even){
+  setData(even.target.value)
+}
+
+function removeElement(index){
+  setArr(arr.filter((element, i) => i !== index));
+}
+
+let addToCart = ()=>{
+  setArr((prev)=>([...prev,data]))
+  setData("")
+}
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div className='main'>
+    <div className='todo'>
+      <h1>ToDo app</h1>
+      <div className='inputDiv'>
+        <input value={data}onChange={takeInput}/>
+        <button onClick={addToCart}><i className="fa-solid fa-circle-plus" ></i></button>
+      </div>
+      <Todolist arr={arr} fun={removeElement}/>
     </div>
+    </div>
+    </>
   );
 }
 
