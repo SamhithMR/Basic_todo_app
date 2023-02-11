@@ -7,7 +7,7 @@ A simple Todo application built using ReactJS.
 - Responsive layout for all screen sizes
 
 ## Demo
-[https://samhith37.netlify.app](https://demo.com)
+[https://samhith37.netlify.app](https://samhith37.netlify.app)
 
 ## Screenshot
 ![Todo App Screenshot](preview.png)
